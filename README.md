@@ -1,5 +1,4 @@
-# packages installed as base:
-#
+#####packages installed as base:
 #
 networkmanager 
 network-manager-applet 
@@ -45,8 +44,7 @@ bluez-utils
 blueman
 carla
 #
-#
-# sway packages installed
+#####sway packages installed
 sway
 wayland
 mako
@@ -62,9 +60,8 @@ sway-img
 awesome-fonts
 otf-cascadia-code
 ttf-cascadia-code 
-#
-#
-#Links
+
+##Links
 https://github.com/Alexays/Waybar
 https://github.com/swaywm/sway
 https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway
