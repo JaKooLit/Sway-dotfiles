@@ -310,11 +310,12 @@ bar {
 
 assign [class="firefox"] → $ws2
 assign [app_id="thunar"] → $ws3
-assign [app_id="audacious"] → $ws9
-assign [app_id="easyeffects"] → $ws9
+assign [app_id="obs"] → $ws4
 assign [class="steam"] → $ws5
 assign [app_id="lutris"] → $ws5
 assign [app_id="virt-manager"] → $ws6
+assign [app_id="audacious"] → $ws9
+assign [app_id="easyeffects"] → $ws9
 
 
 #     _   _   _ _____ ___  ____ _____  _    ____ _____ 
