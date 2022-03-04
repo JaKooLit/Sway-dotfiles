@@ -1,4 +1,5 @@
-packages installed as base:
+# packages installed as base:
+#
 #
 networkmanager 
 network-manager-applet 
@@ -63,6 +64,7 @@ otf-cascadia-code
 ttf-cascadia-code 
 #
 #
+#Links
 https://github.com/Alexays/Waybar
 https://github.com/swaywm/sway
 https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway
