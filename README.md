@@ -1,4 +1,4 @@
-#####packages installed as base:
+###packages installed as base:
 #
 networkmanager 
 network-manager-applet 
@@ -44,7 +44,7 @@ bluez-utils
 blueman
 carla
 #
-#####sway packages installed
+###sway packages installed
 sway
 wayland
 mako
