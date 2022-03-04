@@ -2,8 +2,8 @@
 
    "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    "width": 1280, // Waybar width
+    // "height": 30, // Waybar height (to be removed for auto height)
+    //"width": 640, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     
       // Choose the order of the modules
@@ -35,9 +35,9 @@
 
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname} ",
-	"format-ethernet": "{ifname} ",
-        "format-disconnected": "", 
+        "format-ethernet": "{ifname} ",
+	"format-ethernet": "{ifname} ",
+        "format-disconnected": "", 
         "max-length": 50,
         "on-click": "kitty -e 'nmtui'"
     },
@@ -90,7 +90,7 @@
         "format": "{}",
         "format-alt": "{alt}: {}",
         "format-alt-click": "click-right",
-        "interval": 1800,
+        "interval": 86400,
         "return-type": "json",
         "exec": "~/.config/waybar/modules/weather.sh",
         "exec-if": "ping wttr.in -c1"
