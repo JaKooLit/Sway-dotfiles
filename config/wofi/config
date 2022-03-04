@@ -10,3 +10,7 @@ width=8%
 location=bottom_right
 xoffset=-30
 yoffset=-60
+colors=colors
+filter_rate=100
+allow_markup=true
+lines=5
