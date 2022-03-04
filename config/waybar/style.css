@@ -3,15 +3,22 @@
     font-family: "Cascadia Mono PL Semibold Italic, Font Awesome";
     font-size: 12px;
     color: #ffffff;
-    border-radius: 20px;
+    border-radius: 2px;
 }
 
-window {
-	/*font-weight: bold;*/
-}
 window#waybar {
     background: rgba(0, 0, 0, 0);
 }
+window > box {
+	margin: 12px;
+    background: rgba(0, 0, 0, 0);
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    color: white;
+}
+window {
+	/*font-weight: bold;*/
+}
+
 /*-----module groups----*/
 .modules-right {
 	background-color: rgba(0,43,51,0.85);
@@ -90,3 +97,11 @@ window#waybar {
  *rgba(0,153,153,1),#009999 --> Persian Green 
  *
  */
+#waybar {
+    background-color: #282828;
+    color: #d8d8d8;
+}
+
+#waybar.empty, #waybar.tiled, #waybar.floating {
+    background-color: transparent;
+}
