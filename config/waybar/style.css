@@ -3,14 +3,14 @@
     font-family: "Cascadia Mono PL Semibold Italic, Font Awesome";
     font-size: 12px;
     color: #ffffff;
-    border-radius: 2px;
+    border-radius: 30px;
 }
 
 window#waybar {
     background: rgba(0, 0, 0, 0);
 }
 window > box {
-	margin: 12px;
+	margin: 1px 50px 8px;
     background: rgba(0, 0, 0, 0);
     border-bottom: 3px solid rgba(0, 0, 0, 0);
     color: white;
