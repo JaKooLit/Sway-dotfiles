@@ -60,6 +60,7 @@
 -awesome-fonts
 -otf-cascadia-code
 -ttf-cascadia-code 
+-polkit-gnome
 
 ##Links
 
