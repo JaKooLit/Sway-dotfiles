@@ -1,3 +1,18 @@
+
+
+
+Install packages stated below.
+
+Copy the config folder directories to your
+
+~.config/ 
+
+remember to edit the sway/config for outputs including wallpaper exact location.
+
+Also remember to edit as required the outputs to your monitors
+
+
+
 ##packages installed as base:
 #
 networkmanager 
