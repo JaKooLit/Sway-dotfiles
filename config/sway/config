@@ -1,10 +1,11 @@
+ 
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-set $background ~/Pictures/wallpaper/anime-car.jpg
+set $background ~/Pictures/wallpaper/mukashi2.jpg
 
 # Your preferred terminal emulator
 set $term kitty
@@ -31,10 +32,10 @@ set $right l
 set $ws1 "1 "
 set $ws2 "2 "
 set $ws3 "3 "
-set $ws4 "4"
+set $ws4 "4 "
 set $ws5 "5 "
 set $ws6 "6 "
-set $ws7 "7"
+set $ws7 "7 "
 set $ws8 "8 "
 set $ws9 "9 "
 set $ws10 "10"
@@ -57,12 +58,12 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 #output eDP-1 scale 1.25
 #output eDP-1 mode 2560x1440@165.003Hz position 0,0 adaptive_sync on
 output DP-2 mode 2560x1440 position 0,0 adaptive_sync on
-#output HDMI-A-1 res 2560x1440 position 0,0 
+#output HDMI-A-1 res 2560x1440 position 0,0
 
 #wallpaper
 output * bg $background fill
 
-#way-displays 
+#way-displays
 #exec way-displays > /tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1
 
 #windows borders
@@ -77,7 +78,7 @@ hide_edge_borders smart
 focus_follows_mouse no
 floating_modifier $mod normal
 font CascadiaCodePLSemiBoldItalic 10
-# 
+#
 #font
 #font pango: CascadiaCodePLSemiBoldItalic 11
 
@@ -114,12 +115,12 @@ exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 input * {
     xkb_layout us
 }
-#  _  _________   ______ ___ _   _ ____ ___ _   _  ____ ____  
-# | |/ / ____\ \ / / __ )_ _| \ | |  _ \_ _| \ | |/ ___/ ___| 
-# | ' /|  _|  \ V /|  _ \| ||  \| | | | | ||  \| | |  _\___ \ 
+#  _  _________   ______ ___ _   _ ____ ___ _   _  ____ ____
+# | |/ / ____\ \ / / __ )_ _| \ | |  _ \_ _| \ | |/ ___/ ___|
+# | ' /|  _|  \ V /|  _ \| ||  \| | | | | ||  \| | |  _\___ \
 # | . \| |___  | | | |_) | || |\  | |_| | || |\  | |_| |___) |
-# |_|\_\_____| |_| |____/___|_| \_|____/___|_| \_|\____|____/ 
-#  
+# |_|\_\_____| |_| |____/___|_| \_|____/___|_| \_|\____|____/
+#
 #
 # Basics:
 #
@@ -148,7 +149,7 @@ bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-#    
+#
 # Or use $mod+[up|down|left|right]
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -160,7 +161,7 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-#    
+#
 # Ditto, with arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -238,15 +239,15 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym XF86MonBrightnessUp exec brightnessctl s 200+
-bindsym XF86MonBrightnessDown exect brightnessctl s 200-
+#bindsym XF86MonBrightnessUp exec brightnessctl s 200+
+#bindsym XF86MonBrightnessDown exect brightnessctl s 200-
 
 #screenshot with slurp
 # Take a screenshot with all output and save it into screenshots
-bindsym Print exec grim -t jpeg ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
+bindsym Print exec grim -t jpeg ~/Pictures/Sway-Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
 
 # Take a Screenshot with the region select
-bindsym $mod+Print exec grim -t jpeg -g "$(slurp)" ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
+bindsym $mod+Print exec grim -t jpeg -g "$(slurp)" ~/Pictures/Sway-Screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
 
 # Resizing containers:
 #
@@ -273,19 +274,19 @@ bindsym Escape mode "default"
 bindsym $mod+r mode "resize"
 }
 
-#     _    ____  ____  _     ___ ____    _  _____ ___ ___  _   _ ____  
-#    / \  |  _ \|  _ \| |   |_ _/ ___|  / \|_   _|_ _/ _ \| \ | / ___| 
-#   / _ \ | |_) | |_) | |    | | |     / _ \ | |  | | | | |  \| \___ \ 
+#     _    ____  ____  _     ___ ____    _  _____ ___ ___  _   _ ____
+#    / \  |  _ \|  _ \| |   |_ _/ ___|  / \|_   _|_ _/ _ \| \ | / ___|
+#   / _ \ | |_) | |_) | |    | | |     / _ \ | |  | | | | |  \| \___ \
 #  / ___ \|  __/|  __/| |___ | | |___ / ___ \| |  | | |_| | |\  |___) |
-# /_/   \_\_|   |_|   |_____|___\____/_/   \_\_| |___\___/|_| \_|____/ 
-# 
+# /_/   \_\_|   |_|   |_____|___\____/_/   \_\_| |___\___/|_| \_|____/
+#
 
 # Default settings for some applications
 for_window [class="mpv"] floating enable
 for_window [class="mpv"] move absolute center
 
 #for_window [class="MuPDF"] floating enable
-#for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="pavucontrol-qt"] floating enable
 #for_window [app_id="blueman-manager"] floating enable
 
 for_window [class = "kitty"] floating enable
@@ -309,33 +310,35 @@ bar {
 
 
 assign [class="firefox"] → $ws2
-assign [app_id="thunar"] → $ws3
+assign [class="Microsoft-edge"] → $ws2
+#assign [app_id="microsoft-edge-stable"] → $ws2
+assign [app_id="dolphin"] → $ws3
 assign [app_id="obs"] → $ws4
-assign [class="steam"] → $ws5
+assign [class="Steam"] → $ws5
+#assign [app_id="Steam"] → $ws5
 assign [app_id="lutris"] → $ws5
 assign [app_id="virt-manager"] → $ws6
 assign [app_id="audacious"] → $ws9
 assign [app_id="easyeffects"] → $ws9
 
 
-#     _   _   _ _____ ___  ____ _____  _    ____ _____ 
+#     _   _   _ _____ ___  ____ _____  _    ____ _____
 #    / \ | | | |_   _/ _ \/ ___|_   _|/ \  |  _ \_   _|
-#   / _ \| | | | | || | | \___ \ | | / _ \ | |_) || |  
-#  / ___ \ |_| | | || |_| |___) || |/ ___ \|  _ < | |  
-# /_/   \_\___/  |_| \___/|____/ |_/_/   \_\_| \_\|_|  
+#   / _ \| | | | | || | | \___ \ | | / _ \ | |_) || |
+#  / ___ \ |_| | | || |_| |___) || |/ ___ \|  _ < | |
+# /_/   \_\___/  |_| \___/|____/ |_/_/   \_\_| \_\|_|
 #
 
 #mako
 exec mako
 
 #easyeffects
-exec easyeffects 
-#--gapplication-service
+#exec easyeffects --gapplication-service -l my_own
 #exec easyeffects -r
-exec easyeffects -l own
+exec easyeffects -l my_own
 
 #autotiling
-exec_always autotiling 
+exec_always autotiling
 
 include /etc/sway/config.d/*
 
