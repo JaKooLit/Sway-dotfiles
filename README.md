@@ -72,8 +72,8 @@ mako
 grim
 grimshot
 slurp
-sway-img
-awesome-fonts
+swayimg
+ttf-font-awesome
 otf-cascadia-code
 ttf-cascadia-code 
 polkit-gnome
