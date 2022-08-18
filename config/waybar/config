@@ -2,14 +2,14 @@
 
    "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    // "height": 30, // Waybar height (to be removed for auto height)
-    //"width": 640, // Waybar width
+    //"height": 30, // Waybar height (to be removed for auto height)
+    //"width": 840, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     
       // Choose the order of the modules
      "modules-left": ["sway/workspaces","sway/mode"],
-     "modules-center": ["sway/window", "idle_inhibitor", "clock#time", "clock#date"],
-     "modules-right": ["custom/weather", "tray", "cpu", "memory", "network", "custom/scratchpad-indicator", "temperature", "custom/storage", "battery",  "pulseaudio", "custom/power", "custom/menu"],
+     "modules-center": ["sway/window", "idle_inhibitor", "clock#time", "clock#date", "custom/weather"],
+     "modules-right": ["tray", "cpu", "memory", "network", "network#2", "custom/scratchpad-indicator", "temperature", "custom/storage", "battery", "custom/pipewire", "pulseaudio", "custom/power", "custom/menu"],
    
 
      "sway/mode": {
@@ -19,7 +19,7 @@
 
       "sway/window": {
         "format": "{}",
-        "max-length": 120
+        "max-length": 360
      },
 
     "sway/workspaces": {
@@ -34,13 +34,24 @@
     },
 
     "network": {
+       // "interface": "enp5s0",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname} ",
-	"format-ethernet": "{ifname} ",
+        "format-ethernet": " {ifname}   {bandwidthUpBits}  {bandwidthDownBits} ",
         "format-disconnected": "", 
         "max-length": 50,
         "on-click": "kitty -e 'nmtui'"
     },
+
+    "network#2": {
+    "interface": "enp6s0",
+    "format": "{ifname}",
+    "format-ethernet": " {ifname}   {bandwidthUpBits}  {bandwidthDownBits} ",
+    "format-disconnected": "",
+    "max-length": 50
+
+
+    },
+
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -51,7 +62,8 @@
     "tray": {
         "icon-size": 15,
         "spacing": 10
-    },
+
+        },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
@@ -79,10 +91,7 @@
           "critical": 90
         }
     },
-    "cpu": {
-        "format": "{usage}% ",
-         "tooltip": false
-     },
+
      "memory": {
          "format": "{}% "
      },
@@ -96,7 +105,7 @@
         "exec-if": "ping wttr.in -c1"
     },
     "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon0/temp2_input",
         "critical-threshold": 82,
         "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
@@ -119,7 +128,7 @@
     
 	"custom/power": {
 	"format": "",
-	"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
+	"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'Shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
 	},
 
 	  "custom/storage": {
@@ -130,9 +139,22 @@
         "interval": 60,
         "exec": "~/.config/waybar/modules/storage.sh"
     },
-       "pulseaudio": {
-        "scroll-step": 4, // %, can be a float
-        "format": "{volume}% {icon} ",
+
+    "custom/pipewire": {
+    "format": "{icon}",
+    "return-type": "json",
+    "signal": 8,
+    "interval": "once",
+    "format-icons": {
+        "mute": "",
+        "default": ["", "", "", ""],
+    },
+    "exec": "pw-volume status"
+    },
+
+      "pulseaudio": {
+       "scroll-step": 1, // %, can be a float
+        "format": " {volume}% {icon} ",
         "format-muted": "🔇 {format_source}",
 	"format-bluetooth": "{icon} {volume}% {format_source}",
 	"format-bluetooth-muted": "🔇 {format_source}",
@@ -148,7 +170,7 @@
             "car": "",
             "default": ["🔈", "🔉", "🔊"]
         },
-        "on-click": "pamixer -t",
+        "on-click": "pavucontrol -t",
 	"on-click-right": "pavucontrol"
         },
         
@@ -161,6 +183,7 @@
 	// 	"format": "",
 	//  	"on-click": "/home/dg/.config/waybar/modules/menu_test.py",
 	// },
+
     "custom/scratchpad-indicator": {
         "format-text": "{}",
         "return-type": "json",
