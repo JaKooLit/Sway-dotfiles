@@ -12,6 +12,7 @@ remember to edit the sway/config for outputs including wallpaper exact location.
 Also remember to edit as required the outputs to your monitors
 
 
+note. No log-in manager installed. After logging in tty, just type sway and it sway should start normally
 
 ##packages installed as base:
 #
@@ -67,7 +68,6 @@ mako
 waybar
 autotiling
 kitty
-way-displays
 mako
 grim
 grimshot
@@ -77,6 +77,10 @@ ttf-font-awesome
 otf-cascadia-code
 ttf-cascadia-code 
 polkit-gnome
+ttf-font-awesome-5
+otf-font-awesome-5
+ttf-font-awesome-4
+otf-font-awesome-4
 
 ##Links
 #
