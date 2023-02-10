@@ -59,6 +59,8 @@ bluez
 bluez-utils 
 blueman
 carla
+pavucontrol-qt
+
 #
 ##sway packages installed:
 #
@@ -77,6 +79,9 @@ ttf-font-awesome
 otf-cascadia-code
 ttf-cascadia-code 
 polkit-gnome
+swaybg
+xdg-desktop-portal-wlr
+
 ttf-font-awesome-5
 otf-font-awesome-5
 ttf-font-awesome-4
