@@ -1,4 +1,4 @@
- 
+  
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
@@ -53,7 +53,7 @@ client.focused	$br     $br     $textColor	$brbug		$br
 
 
 #xdg-desktop-portal-wlr
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 #output eDP-1 scale 1.25
 #output eDP-1 mode 2560x1440@165.003Hz position 0,0 adaptive_sync on
@@ -113,7 +113,7 @@ exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Read `man 5 sway-input` for more information about this section.
 
 input * {
-    xkb_layout us
+    xkb_layout "us"
 }
 #  _  _________   ______ ___ _   _ ____ ___ _   _  ____ ____
 # | |/ / ____\ \ / / __ )_ _| \ | |  _ \_ _| \ | |/ ___/ ___|
@@ -218,6 +218,14 @@ bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
+
+# enable Alt+Tab Functionality
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+# jump to last used workspace
+bindsym $mod+grave workspace back_and_forth
+
 #
 # Scratchpad:
 #
@@ -231,13 +239,14 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-# Bind media keys on a keyboard to control volume and playback
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 3 && $HOME/dotfiles/bin/notify-on-volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 3 && $HOME/dotfiles/bin/notify-on-volume
-bindsym XF86AudioMute exec --no-startup-id pamixer -t
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec $menu
 
 #bindsym XF86MonBrightnessUp exec brightnessctl s 200+
 #bindsym XF86MonBrightnessDown exect brightnessctl s 200-
@@ -335,7 +344,7 @@ assign [app_id="pavucontrol-qt"] 9
 #
 
 #mako
-exec mako
+exec_always mako
 
 #easyeffects
 exec easyeffects --gapplication-service -l my_own2
@@ -346,8 +355,12 @@ exec easyeffects --gapplication-service -l my_own2
 exec_always autotiling
 
 #pavucontrol-qt 
-exec pavucontrol-qt --gapplication-service
+exec pavucontrol-qt 
+
+#GTK+ apps long time to load fix
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 include /etc/sway/config.d/*
+
 
 
